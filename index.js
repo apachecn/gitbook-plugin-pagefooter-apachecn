@@ -8,6 +8,7 @@ module.exports = {
   },
   hooks: {
     'page:before': function(page) {
+      /*
       var _label = 'File Modify: ',
           _format = 'YYYY-MM-DD HH:mm:ss',
           _copy = '由 ApacheCN 团队提供支持'
@@ -19,6 +20,18 @@ module.exports = {
         _copy = _c ? _c + ' all right reserved，' + _copy : _copy;
       }
       var _copy = '<span class="copyright">'+_copy+'</span>'
+      var str = [
+        '\n\n<footer class="page-footer">',
+        '<div>',
+        _copy,
+        '<span class="footer-modification">',
+        _label,
+        '{{file.mtime | date("' + _format + '")}}',
+        '</span>',
+        '</div>',
+        '</footer>'
+      ].join('\n')
+      */
       var ad = [
         '<div>',
         '<!-- google ads -->',
@@ -30,19 +43,19 @@ module.exports = {
         '<script>(adsbygoogle = window.adsbygoogle || []).push({})</script>',
         '</div>'
       ].join('\n')
-      var str = [
-        '\n\n<footer class="page-footer">',
-        '<div>',
-        _copy,
-        '<span class="footer-modification">',
-        _label,
-        '{{file.mtime | date("' + _format + '")}}',
-        '</span>',
-        '</div>',
+      var footer = [
+        '<hr/>',
+        '<div align="center">',
+        '<p><a href="http://www.apachecn.org/" target="_blank"><font face="KaiTi" size="6" color="red">我们一直在努力</font></a><p>',
+        '<p><a href="https://github.com/apachecn/pytorch-doc-zh/" target="_blank">apachecn/pytorch-doc-zh</a></p>',
+        '<p><iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&repo=pytorch-doc-zh&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>',
+        '<iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&repo=pytorch-doc-zh&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>',
+        '<iframe align="middle" src="https://ghbtns.com/github-btn.html?user=apachecn&repo=pytorch-doc-zh&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="25px"></iframe>',
+        '<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=bcee938030cc9e1552deb3bd9617bbbf62d3ec1647e4b60d9cd6b6e8f78ddc03"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>',
         ad,
-        '</footer>'
+        '</div>',
       ].join('\n')
-      page.content = page.content + str;
+      page.content = page.content + footer;
       return page;
     }
   },
