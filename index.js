@@ -32,6 +32,26 @@ module.exports = {
         '</footer>'
       ].join('\n')
       */
+      var gittalk = [
+          '<div>',
+          '  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">',
+          '  <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>',
+          '  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>',
+          '  <div id="gitalk-container"></div>',
+          '  <script type="text/javascript">',
+          '    const gitalk = new Gitalk({',
+          '    clientID: "2e62dee5b9896e2eede6",',
+          '    clientSecret: "ca6819a54656af0d87960af15315320f8a628a53",',
+          '    repo: "pytorch-doc-zh",',
+          '    owner: "apachecn",',
+          '    admin: ["jiangzhonglian", "wizardforcel"],',
+          '    id: md5(location.pathname),',
+          '    distractionFreeMode: false',
+          '    })',
+          '    gitalk.render("gitalk-container")',
+          '  </script>',
+          '</div>',
+      ].join('\n')
       var ad = [
         '<div>',
         '<!-- google ads -->',
@@ -41,7 +61,7 @@ module.exports = {
         '     data-ad-client="ca-pub-3565452474788507"',
         '     data-ad-slot="2543897000"></ins>',
         '<script>(adsbygoogle = window.adsbygoogle || []).push({})</script>',
-        '</div>'
+        '</div>',
       ].join('\n')
       var footer = [
         '<hr/>',
@@ -54,6 +74,7 @@ module.exports = {
         '<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=bcee938030cc9e1552deb3bd9617bbbf62d3ec1647e4b60d9cd6b6e8f78ddc03"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="ML | ApacheCN" title="ML | ApacheCN"></a></p>',
         ad,
         '</div>',
+        gittalk,
       ].join('\n')
       page.content = page.content + footer;
       return page;
